@@ -1,7 +1,9 @@
-//your code here
+int enemyX;
+int enemyY;
+NormalParticle [] bullets;
 void setup()
 {
-	//your code here
+	size(500,500);
 }
 void draw()
 {
@@ -9,7 +11,18 @@ void draw()
 }
 class NormalParticle
 {
-	//your code here
+	int bulletColorR, bulletColorG, bulletColorB;
+  double x, y, bulletSpeed, bulletDir;
+  NormalParticle()
+  {
+   bulletColorR = (int)(Math.random()*120)+80;
+   bulletColorG = (int)(Math.random()*120)+80;
+   bulletColorB = (int)(Math.random()*120)+80;
+   x = enemyX;
+   y = enemyY;
+   
+  }
+   
 }
 interface Particle
 {
@@ -23,4 +36,3 @@ class JumboParticle //uses inheritance
 {
 	//your code here
 }
-
