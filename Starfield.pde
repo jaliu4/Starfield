@@ -1,5 +1,4 @@
 Particle[] particles = new Particle[1006];
-
 void setup()
 {
   background(0);
@@ -13,16 +12,29 @@ void setup()
   {
     particles[a] = new JumboParticle();
   }
-  particles[1] = new OddballParticle();
+  particles[501] = new OddballParticle();
 }
 void draw()
 {
  background(0);
-  for (int c = 0; c < 1006; c++)
+  for (int c = 500; c < 1006; c++)
   {
     particles[c].move();
     particles[c].show();
   }
+ if((get(mouseX,mouseY)) != color(0))
+ {
+ for (int c = 500; c < 995; c++)
+  {
+    particles[c] = new NormalParticle();
+  }
+  for (int a = 995; a < 1006; a++)
+  {
+    particles[a] = new JumboParticle();
+  }
+  particles[501] = new OddballParticle();
+ }
+ 
 }
 class NormalParticle implements Particle
 {
@@ -81,17 +93,4 @@ class JumboParticle extends NormalParticle
   {
     Bsize = 50;
   }
-}
-
-void mousePressed()
-{
- for (int c = 0; c < 995; c++)
-  {
-    particles[c] = new NormalParticle();
-  }
-  for (int a = 995; a < 1006; a++)
-  {
-    particles[a] = new JumboParticle();
-  }
-  particles[1] = new OddballParticle();
 }
